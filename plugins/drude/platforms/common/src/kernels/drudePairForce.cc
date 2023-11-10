@@ -13,7 +13,7 @@ real u = drudeParams.x*r;
 real screening = ERF(u);
 real pairEnergy = drudeParams.y*screening*rInv;
 energy += pairEnergy;
-real3 f = -delta*rInv*(drudeParams.y*rInv*(-screening*rInv+2*drudeParams.x*EXP(-u*u)/SQRT(3.14159f))); 
+real3 f = -delta*rInv*(drudeParams.y*rInv*(-screening*rInv+1.1283791671*drudeParams.x*EXP(-u*u))); 
 force1 += f;
 force3 -= f;
 
@@ -26,7 +26,7 @@ u = drudeParams.x*r;
 screening = ERF(u);
 pairEnergy = -drudeParams.y*screening*rInv;
 energy += pairEnergy;
-f = delta*rInv*(drudeParams.y*rInv*(-screening*rInv+2*drudeParams.x*EXP(-u*u)/SQRT(3.14159f)));
+f = delta*rInv*(drudeParams.y*rInv*(-screening*rInv+1.1283791671*drudeParams.x*EXP(-u*u)));
 force1 += f;
 force4 -= f;
 
@@ -39,7 +39,7 @@ u = drudeParams.x*r;
 screening = ERF(u);
 pairEnergy = -drudeParams.y*screening*rInv;
 energy += pairEnergy;
-f = delta*rInv*(drudeParams.y*rInv*(-screening*rInv+2*drudeParams.x*EXP(-u*u)/SQRT(3.14159f)));
+f = delta*rInv*(drudeParams.y*rInv*(-screening*rInv+1.1283791671*drudeParams.x*EXP(-u*u)));
 force2 += f;
 force3 -= f;
 
@@ -52,6 +52,6 @@ u = drudeParams.x*r;
 screening = ERF(u);
 pairEnergy = drudeParams.y*screening*rInv;
 energy += pairEnergy;
-f = -delta*rInv*(drudeParams.y*rInv*(-screening*rInv+2*drudeParams.x*EXP(-u*u)/SQRT(3.14159f)));
+f = -delta*rInv*(drudeParams.y*rInv*(-screening*rInv+1.1283791671*drudeParams.x*EXP(-u*u)));
 force2 += f;
 force4 -= f;
