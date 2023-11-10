@@ -1,14 +1,16 @@
-[![GH Actions Status](https://github.com/openmm/openmm/workflows/CI/badge.svg)](https://github.com/openmm/openmm/actions?query=branch%3Amaster+workflow%3ACI)
-[![Conda](https://img.shields.io/conda/v/conda-forge/openmm.svg)](https://anaconda.org/conda-forge/openmm)
-[![Anaconda Cloud Badge](https://anaconda.org/conda-forge/openmm/badges/downloads.svg)](https://anaconda.org/conda-forge/openmm)
-
 ## OpenMM: A High Performance Molecular Dynamics Library
+
+## BK3 Fork
 
 Introduction
 ------------
 
 [OpenMM](http://openmm.org) is a toolkit for molecular simulation. It can be used either as a stand-alone application for running simulations, or as a library you call from your own code. It
 provides a combination of extreme flexibility (through custom forces and integrators), openness, and high performance (especially on recent GPUs) that make it truly unique among simulation codes.  
+
+This OpenMM fork modifies the DrudeSCFIntegrator to enable simulation of polarizable Drude models with Gaussian charge density.
+
+For all intermolecular drude particle pairs (i,j), pass the following value as 'sigma': 1/sqrt(2*(σ_i^2+σ_j^2))
 
 Getting Help
 ------------

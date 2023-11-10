@@ -170,7 +170,7 @@ double ReferenceCalcDrudeForceKernel::execute(ContextImpl& context, bool include
         int dipole2 = pair2[i];
         int dipole1Particles[] = {particle[dipole1], particle1[dipole1]};
         int dipole2Particles[] = {particle[dipole2], particle1[dipole2]};
-        double uscale = pairThole[i]/pow(polarizability[dipole1]*polarizability[dipole2], 1.0/6.0);
+        double uscale = pairThole[i];
         for (int j = 0; j < 2; j++)
             for (int k = 0; k < 2; k++) {
                 int p1 = dipole1Particles[j];
@@ -179,9 +179,9 @@ double ReferenceCalcDrudeForceKernel::execute(ContextImpl& context, bool include
                 Vec3 delta = pos[p1]-pos[p2];
                 double r = sqrt(delta.dot(delta));
                 double u = r*uscale;
-                double screening = 1.0 - (1.0+0.5*u)*exp(-u);
+                double screening = erf(u);
                 energy += ONE_4PI_EPS0*chargeProduct*screening/r;
-                Vec3 f = delta*(ONE_4PI_EPS0*chargeProduct/(r*r))*(screening/r-0.5*(1+u)*exp(-u)*uscale);
+                Vec3 f = delta*(ONE_4PI_EPS0*chargeProduct/(r*r))*(screening/r-M_2_SQRTPI*exp(-u*u)*uscale);
                 force[p1] += f;
                 force[p2] -= f;
             }

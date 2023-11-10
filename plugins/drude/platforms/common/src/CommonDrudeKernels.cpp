@@ -152,7 +152,7 @@ void CommonCalcDrudeForceKernel::initialize(const System& system, const DrudeFor
             double charge1, charge2, polarizability1, polarizability2, aniso12, aniso34;
             force.getParticleParameters(drude1, atoms[i][0], atoms[i][1], p2, p3, p4, charge1, polarizability1, aniso12, aniso34);
             force.getParticleParameters(drude2, atoms[i][2], atoms[i][3], p2, p3, p4, charge2, polarizability2, aniso12, aniso34);
-            double screeningScale = thole/pow(polarizability1*polarizability2, 1.0/6.0);
+            double screeningScale = thole;
             double energyScale = ONE_4PI_EPS0*charge1*charge2;
             paramVector[i] = mm_float2((float) screeningScale, (float) energyScale);
         }
@@ -214,7 +214,7 @@ void CommonCalcDrudeForceKernel::copyParametersToContext(ContextImpl& context, c
             double charge1, charge2, polarizability1, polarizability2, aniso12, aniso34;
             force.getParticleParameters(drude1, p, p1, p2, p3, p4, charge1, polarizability1, aniso12, aniso34);
             force.getParticleParameters(drude2, p, p1, p2, p3, p4, charge2, polarizability2, aniso12, aniso34);
-            double screeningScale = thole/pow(polarizability1*polarizability2, 1.0/6.0);
+            double screeningScale = thole;
             double energyScale = ONE_4PI_EPS0*charge1*charge2;
             paramVector[i] = mm_float2((float) screeningScale, (float) energyScale);
         }

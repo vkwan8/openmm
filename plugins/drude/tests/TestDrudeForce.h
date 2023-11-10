@@ -123,8 +123,8 @@ void testAnisotropicParticle() {
 }
 
 double computeScreening(double r, double thole, double alpha1, double alpha2) {
-    double u = r*thole/pow(alpha1*alpha2, 1.0/6.0);
-    return 1.0-(1.0+u/2)*exp(-u);
+    double u = r*thole;
+    return erf(u);
 }
 
 void testThole() {
