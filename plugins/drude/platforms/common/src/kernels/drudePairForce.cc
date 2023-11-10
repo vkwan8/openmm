@@ -1,4 +1,4 @@
-float2 drudeParams = PARAMS[index]; // screeningScale = thole; energyScale = ONE_4PI_EPS0*charge1*charge2;
+float2 drudeParams = PARAMS[index]; 
 real3 force1 = make_real3(0);
 real3 force2 = make_real3(0);
 real3 force3 = make_real3(0);
@@ -11,9 +11,9 @@ real rInv = RSQRT(dot(delta, delta));
 real r = RECIP(rInv);
 real u = drudeParams.x*r;
 real screening = ERF(u);
-real pairEnergy = drudeParams.y*screening*rInv; // U = drudeParams.y*screening*rInv then du = -drudeParams.y*screening*rInv*rInv + 
+real pairEnergy = drudeParams.y*screening*rInv;
 energy += pairEnergy;
-real3 f = -delta*rInv*(drudeParams.y*rInv*(-screening*rInv+2*drudeParams.x*EXP(-u*u)/SQRT(3.14159f))); // M_2_SQRTPI*drudeParams.x*EXP(-u*u)
+real3 f = -delta*rInv*(drudeParams.y*rInv*(-screening*rInv+2*drudeParams.x*EXP(-u*u)/SQRT(3.14159f))); 
 force1 += f;
 force3 -= f;
 
