@@ -6113,7 +6113,7 @@ class DrudeGenerator(object):
                     type2 = data.atomType[data.atoms[particle2]]
                     thole1 = self.typeMap[type1][8]
                     thole2 = self.typeMap[type2][8]
-                    drude.addScreenedPair(drude1, drude2, thole1+thole2)
+                    #drude.addScreenedPair(drude1, drude2, thole1+thole2)
 
         # Set the masses of Drude particles.
 
