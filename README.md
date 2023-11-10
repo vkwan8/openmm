@@ -10,7 +10,9 @@ provides a combination of extreme flexibility (through custom forces and integra
 
 This OpenMM fork modifies the DrudeSCFIntegrator to enable simulation of polarizable Drude models with Gaussian charge density.
 
-For all intermolecular drude particle pairs (i,j), pass the following value as 'sigma': 1/sqrt(2*(σ_i^2+σ_j^2))
+For all intermolecular drude particle pairs (i,j), pass the following value as sigma: $\frac{1}{\sqrt{(2(\sigma_i^2+\sigma_j^2))}}$
+
+`DrudeForce.addScreenedPair(i,j,sigma)`
 
 Getting Help
 ------------
